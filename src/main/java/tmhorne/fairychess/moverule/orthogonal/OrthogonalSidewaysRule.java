@@ -20,8 +20,8 @@ public class OrthogonalSidewaysRule extends CompoundRule {
     @Override
     protected MoveRule[] getRules() {
         return new MoveRule[] {
-                new LeapRule(new Vector2(0,1), modifier, initial, length),
-                new LeapRule(new Vector2(0,-1), modifier, initial, length)
+                new LeapRule(new Vector2(1,0), modifier, initial, length),
+                new LeapRule(new Vector2(-1,0), modifier, initial, length)
         };
     }
 }
