@@ -2,6 +2,9 @@ package tmhorne.fairychess.util;
 
 import tmhorne.fairychess.moverule.MoveRule;
 import tmhorne.fairychess.moverule.MultileapRule;
+import tmhorne.fairychess.moverule.OrthogonalDiagonalRule;
+import tmhorne.fairychess.moverule.diagonal.DiagonalBackwardsRule;
+import tmhorne.fairychess.moverule.diagonal.DiagonalForwardsRule;
 import tmhorne.fairychess.moverule.diagonal.DiagonalRule;
 import tmhorne.fairychess.moverule.orthogonal.*;
 
@@ -71,6 +74,7 @@ public class ParlettParser {
             } else { // normal moves
                 switch(m.group(4)) {
                     case "*":
+                        out = new OrthogonalDiagonalRule(modifier, initial, length);
                         break;
                     case "+":
                         out = new OrthogonalRule(modifier, initial, length);
@@ -97,8 +101,10 @@ public class ParlettParser {
                         out = new DiagonalRule(modifier, initial, length);
                         break;
                     case "X>":
+                        out = new DiagonalForwardsRule(modifier, initial, length);
                         break;
                     case "X<":
+                        out = new DiagonalBackwardsRule(modifier, initial, length);
                         break;
                 }
             }
