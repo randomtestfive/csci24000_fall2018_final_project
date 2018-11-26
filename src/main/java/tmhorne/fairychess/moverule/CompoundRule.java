@@ -10,12 +10,11 @@ import java.util.Set;
 public abstract class CompoundRule implements MoveRule {
     private Set<MoveRule> rules;
 
-    public CompoundRule() {
-        this.rules = new HashSet<>(Arrays.asList(getRules()));
-    }
-
     @Override
     public Set<Vector2> getPossibleMoves(ChessPiece piece) {
+        if(rules == null) {
+            rules = new HashSet<>(Arrays.asList(getRules()));
+        }
         return rules.stream()
                 .map( r -> r.getPossibleMoves(piece) )
                 .reduce( (a,b) -> { a.addAll(b); return a; } )
