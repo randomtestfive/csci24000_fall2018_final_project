@@ -31,6 +31,11 @@ public class LeapRule implements MoveRule {
 
         Set<Vector2> moves = new HashSet<>();
 
+        // if its an initial move and we've already moved, get out
+        if(initial && piece.getMoved()) {
+            return moves;
+        }
+
         // starting from current position
         Vector2 current = piece.getPosition();
 
@@ -42,6 +47,8 @@ public class LeapRule implements MoveRule {
             if(!current.onBoard(piece.getBoard())) {
                 break;
             }
+
+            if(modifier)
 
             // this ones good
             moves.add(current);
