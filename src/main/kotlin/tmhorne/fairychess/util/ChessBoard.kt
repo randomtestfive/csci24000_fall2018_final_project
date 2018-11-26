@@ -7,7 +7,7 @@ class ChessBoard(val xSize: Int, val ySize: Int) {
 
     fun getPieceAt(pos: Vector2): ChessPiece? {
         return pieces.stream()
-                .filter { p -> p.position.equals(pos) }
+                .filter { p -> p.getPosition().equals(pos) }
                 .findFirst()
                 .orElse(null);
     }

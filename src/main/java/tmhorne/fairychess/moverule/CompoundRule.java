@@ -1,8 +1,6 @@
 package tmhorne.fairychess.moverule;
 
-import tmhorne.fairychess.util.ChessBoard;
 import tmhorne.fairychess.util.ChessPiece;
-import tmhorne.fairychess.util.Player;
 import tmhorne.fairychess.util.Vector2;
 
 import java.util.Arrays;
@@ -17,9 +15,9 @@ public abstract class CompoundRule implements MoveRule {
     }
 
     @Override
-    public Set<Vector2> getPossibleMoves(ChessBoard board, Player player, ChessPiece piece) {
+    public Set<Vector2> getPossibleMoves(ChessPiece piece) {
         return rules.stream()
-                .map( r -> r.getPossibleMoves(board, player, piece) )
+                .map( r -> r.getPossibleMoves(piece) )
                 .reduce( (a,b) -> { a.addAll(b); return a; } )
                 .orElse(new HashSet<>());
     }
