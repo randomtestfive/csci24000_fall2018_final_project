@@ -1,24 +1,24 @@
 package tmhorne.fairychess;
 
-import tmhorne.fairychess.piece.KingPiece;
-import tmhorne.fairychess.piece.RookPiece;
 import tmhorne.fairychess.player.DumbPlayer;
 import tmhorne.fairychess.util.*;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.io.File;
 
 /**
  * The main class
  */
 public class Main {
     public static void main(String[] args) {
+        PieceRegistry.init();
+
         ChessBoard board = new ChessBoard(8, 8);
         Player p = new DumbPlayer(PlayerColor.BLACK);
+        Player p2 = new DumbPlayer(PlayerColor.WHITE);
 
-        ChessPiece piece = new RookPiece(new Vector2(4,4), p, board);
+        PieceRegistry.getPiece("chess.pawn", new Vector2(4,4), p, board);
+        PieceRegistry.getPiece("chess.pawn", new Vector2(3,3), p, board);
+        PieceRegistry.getPiece("chess.pawn", new Vector2(4,2), p2, board);
 
         System.out.println(board);
     }

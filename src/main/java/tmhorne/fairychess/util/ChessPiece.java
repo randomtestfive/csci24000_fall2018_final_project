@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class ChessPiece {
+    private String unique;
     private String name;
     private String ident;
     private Vector2 position;
@@ -16,7 +17,7 @@ public class ChessPiece {
 
     private boolean moved;
 
-    public ChessPiece(String name, String ident, Vector2 position,
+    public ChessPiece(String unique, String name, String ident, Vector2 position,
                       Player player, ChessBoard board, String parlett) {
         // get infos
         this.name = name;
@@ -35,9 +36,18 @@ public class ChessPiece {
         moved = false;
     }
 
+    public ChessPiece(ChessPieceInfo info, Vector2 position, Player player, ChessBoard board) {
+        this(info.getUnique(), info.getName(), info.getIdent(), position,
+                player, board, info.getParlett());
+    }
+
     public void setPosition(Vector2 pos) {
         moved = true;
         this.position = pos;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Vector2 getPosition() {
