@@ -33,6 +33,7 @@ public class LeapRule implements MoveRule {
 
         // if its an initial move and we've already moved, get out
         if(initial && piece.getMoved()) {
+            System.out.println(initial);
             return moves;
         }
 
@@ -57,7 +58,7 @@ public class LeapRule implements MoveRule {
                 // if theres a piece there
                 if(pieceThere != null) {
                     // and its an enemy piece
-                    if(pieceThere.getPlayer() != piece.getPlayer()) {
+                    if(pieceThere.getPlayer().getColor() != piece.getPlayer().getColor()) {
                         // that ones good
                         moves.add(current);
                         break;

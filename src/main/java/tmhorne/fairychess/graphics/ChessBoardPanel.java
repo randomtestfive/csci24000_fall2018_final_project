@@ -29,6 +29,10 @@ public class ChessBoardPanel extends JPanel implements MouseListener {
         this.repaint();
     }
 
+    public Vector2 getSelection() {
+        return selection;
+    }
+
     private int getSquareSize() {
         return Math.min(getSize().width/board.getXSize(),
                 getSize().height/board.getYSize());

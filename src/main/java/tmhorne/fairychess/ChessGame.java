@@ -21,11 +21,20 @@ public class ChessGame {
         this.turn = 1;
     }
 
+    public Player getCurrentPlayer() {
+        return players[turn % 2];
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
     public void play() {
         // TODO check victory
         while(true) {
             ChessMove move = players[turn % 2].getMove();
             board.applyMove(move);
+            turn++;
         }
     }
 }

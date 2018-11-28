@@ -18,19 +18,35 @@ public class GraphicsPlayer extends Player {
         this.start = start;
     }
 
-    public void setEnd(Vector2 end) {
+    public Vector2 getStart() {
+        return start;
+    }
+
+    public synchronized void setEnd(Vector2 end) {
         this.notify();
         this.end = end;
+    }
+
+    public Vector2 getEnd() {
+        return end;
     }
 
     @NotNull
     @Override
     public ChessMove getMove() {
         try {
-            this.wait();
+            synchronized (this) {
+                this.wait();
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return new ChessMove(start, end);
+
+        Vector2 tmpStart = start;
+        Vector2 tmpEnd = end;
+        start = null;
+        end = null;
+
+        return new ChessMove(tmpStart, tmpEnd);
     }
 }

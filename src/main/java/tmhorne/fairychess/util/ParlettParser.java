@@ -56,7 +56,7 @@ public class ParlettParser {
                     modifier = MoveModifier.BOTH;
             }
 
-            initial = m.group(2) != null;
+            initial = m.group(2).equals("i");
 
             if(m.group(3).equals("n")) {
                 length = null;
