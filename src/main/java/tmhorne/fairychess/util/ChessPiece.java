@@ -20,6 +20,7 @@ public class ChessPiece {
     public ChessPiece(String unique, String name, String ident, Vector2 position,
                       Player player, ChessBoard board, String parlett) {
         // get infos
+        this.unique = unique;
         this.name = name;
         this.ident = ident;
         this.position = position;
@@ -70,7 +71,13 @@ public class ChessPiece {
         return moved;
     }
 
+    public String getGraphicsName() {
+        return unique + "/" +
+                (getPlayer().getColor() == PlayerColor.BLACK ? "b" : "w");
+    }
+
     public Set<Vector2> getPossibleMoves() {
+
         return rules.stream()
                 .map(r -> r.getPossibleMoves(this))
                 .reduce((a,b) -> { a.addAll(b); return a; })

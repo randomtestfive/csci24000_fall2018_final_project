@@ -18,7 +18,6 @@ public class MultileapRule extends CompoundRule {
 
     @Override
     protected MoveRule[] getRules() {
-        System.out.println(this.leap);
         int x = leap.getX();
         int y = leap.getY();
         MoveRule[] tmpRules = {

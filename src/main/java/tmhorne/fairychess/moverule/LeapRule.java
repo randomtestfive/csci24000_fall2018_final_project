@@ -42,6 +42,7 @@ public class LeapRule implements MoveRule {
         ChessBoard board = piece.getBoard();
 
         for(int i = 0; i < maxLength; i++) {
+
             // move current position
             current = current.add(this.getLeap(piece));
 
@@ -52,13 +53,6 @@ public class LeapRule implements MoveRule {
 
             ChessPiece pieceThere = board.getPieceAt(current);
 
-            if(modifier == MoveModifier.NONCAPTURE || modifier == MoveModifier.BOTH) {
-                if(pieceThere == null) {
-                    // if theres no piece there, the move is good
-                    moves.add(current);
-                }
-            }
-
             if(modifier == MoveModifier.CAPTURE || modifier == MoveModifier.BOTH) {
                 // if theres a piece there
                 if(pieceThere != null) {
@@ -66,9 +60,21 @@ public class LeapRule implements MoveRule {
                     if(pieceThere.getPlayer() != piece.getPlayer()) {
                         // that ones good
                         moves.add(current);
+                        break;
                     }
                 }
             }
+
+            if(modifier == MoveModifier.NONCAPTURE || modifier == MoveModifier.BOTH) {
+                if(pieceThere == null) {
+                    // if theres no piece there, the move is good
+                    moves.add(current);
+                } else {
+                    break;
+                }
+            }
+
+
         }
 
         return moves;

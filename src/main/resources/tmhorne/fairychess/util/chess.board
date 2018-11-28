@@ -1,0 +1,9 @@
+8x8
+chess.rook/2,chess.knight/2,chess.bishop/2,chess.queen/2,chess.king/2,chess.bishop/2,chess.knight/2,chess.rook/2
+chess.pawn/2,chess.pawn/2,chess.pawn/2,chess.pawn/2,chess.pawn/2,chess.pawn/2,chess.pawn/2,chess.pawn/2
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+chess.pawn/1,chess.pawn/1,chess.pawn/1,chess.pawn/1,chess.pawn/1,chess.pawn/1,chess.pawn/1,chess.pawn/1
+chess.rook/1,chess.knight/1,chess.bishop/1,chess.queen/1,chess.king/1,chess.bishop/1,chess.knight/1,chess.rook/1

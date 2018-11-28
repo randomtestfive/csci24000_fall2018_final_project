@@ -32,8 +32,6 @@ public class ParlettParser {
     }
 
     private static MoveRule getRule(String bit) {
-        System.out.println(bit);
-
         MoveRule out = null;
 
         // check if we've done this already

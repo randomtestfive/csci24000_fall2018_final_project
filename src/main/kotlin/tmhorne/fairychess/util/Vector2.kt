@@ -14,8 +14,8 @@ data class Vector2(val x: Int, val y: Int) {
     }
 
     fun onBoard(board: ChessBoard): Boolean {
-        if(this.x > 0 && this.y > 0) {
-            if(this.x <= board.xSize && this.y <= board.ySize) {
+        if(this.x >= 0 && this.y >= 0) {
+            if(this.x < board.xSize && this.y < board.ySize) {
                 return true;
             }
         }
