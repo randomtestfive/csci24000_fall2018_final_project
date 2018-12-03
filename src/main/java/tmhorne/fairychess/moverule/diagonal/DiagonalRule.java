@@ -6,6 +6,13 @@ import tmhorne.fairychess.moverule.MoveRule;
 import tmhorne.fairychess.util.MoveModifier;
 import tmhorne.fairychess.util.Vector2;
 
+/**
+ * defines moving diagonally, like a bishop
+ * <br>
+ * parlett: X
+ *
+ * @see MoveRule
+ */
 public class DiagonalRule extends CompoundRule {
     private MoveModifier modifier;
     private boolean initial;

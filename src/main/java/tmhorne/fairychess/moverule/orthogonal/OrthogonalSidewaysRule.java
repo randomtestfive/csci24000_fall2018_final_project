@@ -3,9 +3,19 @@ package tmhorne.fairychess.moverule.orthogonal;
 import tmhorne.fairychess.moverule.CompoundRule;
 import tmhorne.fairychess.moverule.LeapRule;
 import tmhorne.fairychess.moverule.MoveRule;
+import tmhorne.fairychess.moverule.diagonal.DiagonalRule;
 import tmhorne.fairychess.util.MoveModifier;
 import tmhorne.fairychess.util.Vector2;
 
+/**
+ * defines moving sideways orthogonally
+ * <br>
+ * parlett: =
+ *
+ * @see MoveRule
+ * @see OrthogonalRule
+ * @see DiagonalRule
+ */
 public class OrthogonalSidewaysRule extends CompoundRule {
     private MoveModifier modifier;
     private boolean initial;

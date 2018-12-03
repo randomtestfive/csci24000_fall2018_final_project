@@ -4,6 +4,15 @@ import tmhorne.fairychess.moverule.CompoundRule;
 import tmhorne.fairychess.moverule.MoveRule;
 import tmhorne.fairychess.util.MoveModifier;
 
+/**
+ * defines moving forwards and sideways orthogonally
+ * <br>
+ * parlett: =>
+ *
+ * @see MoveRule
+ * @see OrthogonalForwardsRule
+ * @see OrthogonalSidewaysRule
+ */
 public class OrthogonalForwardsSidewaysRule extends CompoundRule {
     private MoveModifier modifier;
     private boolean initial;

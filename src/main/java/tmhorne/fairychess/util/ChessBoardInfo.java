@@ -1,5 +1,9 @@
 package tmhorne.fairychess.util;
 
+/**
+ * holds information that a chess board can be instantiated from
+ * @see ChessBoard
+ */
 public class ChessBoardInfo {
     private int xSize;
     private int ySize;

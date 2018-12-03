@@ -1,21 +1,19 @@
 package tmhorne.fairychess;
 
-import tmhorne.fairychess.graphics.GameFrame;
 import tmhorne.fairychess.graphics.GraphicsRegistry;
-import tmhorne.fairychess.player.DumbPlayer;
-import tmhorne.fairychess.util.*;
-
-import java.io.File;
+import tmhorne.fairychess.graphics.MainMenuFrame;
 
 /**
  * The main class
  */
 public class Main {
     public static void main(String[] args) {
+        // intialize the registries
         PieceRegistry.init();
         GraphicsRegistry.init();
         BoardRegistry.init();
 
-        new GameFrame();
+        // create the main menu
+        new MainMenuFrame();
     }
 }

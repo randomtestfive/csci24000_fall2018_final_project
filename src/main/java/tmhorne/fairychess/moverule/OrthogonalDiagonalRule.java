@@ -6,6 +6,14 @@ import tmhorne.fairychess.moverule.orthogonal.OrthogonalForwardsSidewaysRule;
 import tmhorne.fairychess.moverule.orthogonal.OrthogonalRule;
 import tmhorne.fairychess.util.MoveModifier;
 
+/**
+ * defines an orthogonal and diagonal move, like a king or queen
+ * <br>
+ * parlett: *
+ *
+ * @see MoveRule
+ * @
+ */
 public class OrthogonalDiagonalRule extends CompoundRule {
     private MoveModifier modifier;
     private boolean initial;

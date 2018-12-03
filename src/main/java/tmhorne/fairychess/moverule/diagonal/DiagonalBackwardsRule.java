@@ -7,6 +7,13 @@ import tmhorne.fairychess.util.ChessPiece;
 import tmhorne.fairychess.util.MoveModifier;
 import tmhorne.fairychess.util.Vector2;
 
+/**
+ * defines moving diagonally, but only backwards
+ * <br>
+ * parlett: X<
+ *
+ * @see MoveRule
+ */
 public class DiagonalBackwardsRule extends CompoundRule {
     private MoveModifier modifier;
     private boolean initial;

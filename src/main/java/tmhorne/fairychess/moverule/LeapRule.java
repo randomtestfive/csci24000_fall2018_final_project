@@ -5,12 +5,28 @@ import tmhorne.fairychess.util.*;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * defines the most basic form of move in chess, a leap
+ * <br>
+ * a leap is moving a piece by a vector by an amount
+ * <br>
+ * either a specific amount (a number), or as far a possible (n)
+ * <br>
+ * the move stops at other pieces depending on the modifier
+ */
 public class LeapRule implements MoveRule {
     private Vector2 leap;
     private Integer length;
     private MoveModifier modifier;
     private boolean initial;
 
+    /**
+     * creates a leap rule
+     * @param leap leap to use when leaping
+     * @param modifier modifiers for which leaps are valid
+     * @param initial whether the move is only allowed as a starting move
+     * @param length how far to go: a number for a specific amount or null for unlimited
+     */
     public LeapRule(Vector2 leap, MoveModifier modifier, boolean initial, Integer length) {
         this.leap = leap;
         this.modifier = modifier;
@@ -18,6 +34,11 @@ public class LeapRule implements MoveRule {
         this.length = length;
     }
 
+    /**
+     * finds the leap, can be overrode for special cases
+     * @param piece piece that is leaping
+     * @return the leap
+     */
     public Vector2 getLeap(ChessPiece piece) {
         return leap;
     }
@@ -33,7 +54,6 @@ public class LeapRule implements MoveRule {
 
         // if its an initial move and we've already moved, get out
         if(initial && piece.getMoved()) {
-            System.out.println(initial);
             return moves;
         }
 

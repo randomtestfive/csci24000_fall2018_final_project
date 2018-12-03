@@ -7,6 +7,13 @@ import tmhorne.fairychess.util.ChessPiece;
 import tmhorne.fairychess.util.MoveModifier;
 import tmhorne.fairychess.util.Vector2;
 
+/**
+ * defines moving diagonally, but only forwards, like a pawn's capture
+ * <br>
+ * parlett: X>
+ *
+ * @see MoveRule
+ */
 public class DiagonalForwardsRule extends CompoundRule {
     private MoveModifier modifier;
     private boolean initial;

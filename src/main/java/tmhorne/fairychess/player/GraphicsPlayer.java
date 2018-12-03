@@ -6,6 +6,9 @@ import tmhorne.fairychess.util.Player;
 import tmhorne.fairychess.util.PlayerColor;
 import tmhorne.fairychess.util.Vector2;
 
+/**
+ * player for use with a graphical interface, or just an interface running in another thread
+ */
 public class GraphicsPlayer extends Player {
     private Vector2 start;
     private Vector2 end;
@@ -14,6 +17,10 @@ public class GraphicsPlayer extends Player {
         super(color);
     }
 
+    /**
+     * sets the start position for the next move
+     * @param start position
+     */
     public void setStart(Vector2 start) {
         this.start = start;
     }
@@ -22,6 +29,12 @@ public class GraphicsPlayer extends Player {
         return start;
     }
 
+    /**
+     * sets the end position for the next move
+     * <br>
+     * unfreezes the thread that {@link Player#getMove} was called on
+     * @param end position
+     */
     public synchronized void setEnd(Vector2 end) {
         this.notify();
         this.end = end;

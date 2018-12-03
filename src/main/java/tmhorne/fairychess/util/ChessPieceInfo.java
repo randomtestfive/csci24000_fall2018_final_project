@@ -1,5 +1,9 @@
 package tmhorne.fairychess.util;
 
+/**
+ * information that a chess piece can be instantiated from
+ * @see ChessPiece
+ */
 public class ChessPieceInfo {
     private String unique;
     private String name;
